@@ -1,0 +1,118 @@
+:root {
+    --mainFont: "Roboto";
+    --secondaryFont: "Roboto Condensed";
+    --primaryColor: #1B90FC;
+    --white: white;
+    --black: #202020;
+}
+
+body {
+    font-family: var(--mainFont);
+    margin: 0;
+}
+
+p, h1 {
+    margin: 0;
+}
+
+.wrapper {
+    max-inline-size: 1664px;
+    margin: auto;
+}
+
+.hero h1 {
+    font-family: var(--secondaryFont);
+    font-size: 40px;
+    margin-block-end: 8px;
+}
+
+.hero p{
+    line-height: 25px;
+    margin-block-end: 25px;
+}
+
+.hero button {
+    background-color: var(--primaryColor);
+    color: var(--white);
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 16px;
+    padding-block: 16px;
+    padding-inline: 32px;
+    border: none;
+    border-radius: 30px;
+    text-transform: uppercase;
+}
+
+.hero-content {
+    block-size: 768px;
+    display: flex;
+    align-items: center;
+}
+
+.card {
+    color: var(--white);
+    max-inline-size: 412px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero::before {
+    content: '';
+    inline-size: 50%;
+    display: block;
+    background-color: var(--black);
+    position: absolute;
+    inset-block: 0;
+    z-index: 1;
+    clip-path: polygon(0 0, calc(100% - 151px) 0, 100% 100%, 0 100%);
+}
+
+.hero {
+    background-color: var(--black);
+    background-image: url('../images/loki.jpg');
+    background-position: center;
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 128px), 0 100%);
+    position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        clip-path: none;
+    }
+
+    .hero::before {
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 50px), 0 100%);
+        inline-size: 100%;
+        inset-block-start: 272px;
+        block-size: calc(100% + 130px);
+    }
+
+    .hero-content {
+        block-size: 274px;
+        position: relative;
+        top: 272px;
+        padding-inline: 24px;
+    }
+
+    .hero-content img {
+        inline-size: 78px;
+        margin-block-end: 24px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+        margin-block-end: 8px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .hero button {
+        display: block;
+        font-size: 14px;
+        inline-size: 100%;
+    }
+}
